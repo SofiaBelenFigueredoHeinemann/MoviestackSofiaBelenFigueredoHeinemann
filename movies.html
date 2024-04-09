@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
     <link rel="shortcut icon" href="./assets/images/Moviestack_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="font-sans bg-purple-900">
-    <header class="min-w-full flex h-20 bg-purple-900 text-white justify-between items-center p-4 border border-2 border-solid border-white">
-        <div class="flex ">
-            <img src="./assets/images/Moviestack_isotipo.png" alt="moviestack_isotipo" class="w-24">
-            <img src="./assets/images/Moviestack_logotipo1.png" alt="moviestack_logotipo1" class="w-60">
+    <header
+        class="min-w-sm flex justify-between items-center bg-purple-900 text-white border-2 border-solid border-white">
+        <!-- min-w-full flex h-20 bg-purple-900 text-white justify-between items-center p-4 border border-2 border-solid border-white -->
+        <div class="flex">
+            <img src="./assets/images/Moviestack_isotipo.png" alt="moviestack_isotipo" class="min-w-sm w-14 md:w-24">
+            <!-- w-24 -->
+            <img src="./assets/images/Moviestack_logotipo1.png" alt="moviestack_logotipo1"
+                class="min-w-sm w-20 md:w-36">
+            <!--  w-60 -->
         </div>
-        <nav>
-            <a href="./index.html" class="p-3">HOME</a>
+        <nav class="text-left sm:m-2 sm:p-2 sm:flex sm:space-x-5">
+            <a href="./index.html" class="p-3 text-bold">HOME</a>
             <a href="#" class="active border border-solid border-white p-3">MOVIES</a>
             <a href="./favs.html" class="p-3">FAVS</a>
         </nav>
     </header>
 
     <main class="bg-purple-900 text-purple-900 font-sans">
-        <h1 class="m-4 p-4 mx-20 text-center text-7xl text-white bg-black rounded-lg">MOVIES</h1>
+        <h1 class="min-w-sm m-1 p-1 mx-10 mt-4 text-center text-6xl text-white bg-black rounded-lg md:text-7xl lg:8xl">
+            MOVIES</h1>
+        <!-- m-4 p-4 mx-20 text-center text-7xl text-white bg-black rounded-lg -->
         <hr class="my-4 border border-solid border-white">
-        <div id="cards_container" class="min-w-full bg-purple-900 flex flex-wrap justify-center">
+
+        <section id="filters_containers"
+            class="min-w-sm m-2 p-2 flex flex-col items-center text-white md:flex-row md:flex-wrap md:justify-center md:space-x-10">
+            <div id="genreCheckboxContainer" class="m-1 p-1 w-72 h-30">
+                <!-- <label for="genreSelect">Select a gender:</label>
+                <select name="genreSelect" id="genreSelect">
+                    <option value="">Todos</option>
+                </select> -->
+                <!-- falta el label ???
+                <select id="genre-select" class="m-1 p-1 w-72 h-7">
+                  <option value="">Genre</option>
+                </select> -->
+            </div>
+
+            <label> Search by movie name: <input class="border" type="text" id="search">
+            </label>
+        </section>
+
+        <div id="cards_container"
+            class="min-w-sm m-2 bg-purple-900 flex flex-col items-center md:flex-row md:flex-wrap md:justify-center">
+            <!-- bg-purple-900 flex flex-wrap justify-center -->
+        </div>
+        <div id="movies_container"
+        class="min-w-sm m-2 bg-purple-900 flex flex-col items-center md:flex-row md:flex-wrap md:justify-center">
         </div>
     </main>
 
-    <footer class="h-20 flex justify-center items-center bg-purple-900 text-white font-sans border border-2 border-solid border-white">
-        <p>MindHub - Sofía Belén Figueredo Heinemann - Cohorte N° 54</p>
+    <footer
+        class="min-w-sm flex flex-col items-center p-2 gap-4 bg-purple-900 text-white tracking-widest border border-2 border-solid border-white lg:h-20 lg:flex-row lg:justify-center lg:font-bold">
+        <!-- h-20 flex justify-center items-center bg-purple-900 text-white tracking-widest border border-2 border-solid border-white -->
+        <p>MindHub&nbsp;&nbsp;-</p>
+        <p>Sofía Belén Figueredo Heinemann&nbsp;&nbsp;-</p>
+        <p>Cohorte N° 54</p>
     </footer>
     <script src="./moviestackdata.js"></script>
-   <script src="./movies.js"></script>
+    <script src="./movies.js"></script>
 </body>
+
 </html>
