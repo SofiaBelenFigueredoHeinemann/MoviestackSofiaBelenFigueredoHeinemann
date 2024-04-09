@@ -1,6 +1,4 @@
 let container = document.getElementById("cards_container")
-let movies_container = document.getElementById("movies_container")
-let search = document.getElementById("search")
 function createCard(array) {
     return `
     <section class="max-w-sm flex flex-col items-center m-1 p-3 gap-4 bg-purple-500 font-sans text-black">  
@@ -22,6 +20,8 @@ renderCards(movies, container)
 //Siguiendo la clase de Martin de Practica Integradora.
 
 let containerCheckbox = document.getElementById("genreCheckboxContainer")
+let movies_container = document.getElementById("movies_container")
+let search = document.getElementById("search")
 
 let filterMovies = movies.filter(movie => movie.genres)
 /* console.log(filterMovies) */
@@ -55,27 +55,23 @@ let renderCards2 = array => array.length != 0 ? array.map (createCard2).reduce( 
 movies_container.innerHTML = renderCards2(filterMovies)
 
 let checkChecked = []
-let insertedTitle = ""
+let nombreIngresado = ""
 containerCheckbox.addEventListener("change", event => {
     checkChecked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(input  => input.value)
-    movies_container.innerHTML = renderCards2((filterMovies.filter(array => checkChecked.includes(array.genres))))
+    movies_container.innerHTML = renderCards2(
+    filtrarPorNombre( filtrarPorCheck( filterMovies, checkChecked ) , nombreIngresado ) )
 })
 
 search.addEventListener("keyup", event => {
-    insertedTitle = event.target.value
-    movies_container.innerHTML = renderCards2((filterMovies.filter(movie => movie.title.toLowerCase().includes(insertedTitle.trim().toLowerCase()))))
+    nombreIngresado = event.target.value
+    search.innerHTML = renderCards2(
+        filtrarPorNombre( filtrarPorCheck( filterMovies, checkChecked ) , nombreIngresado ) )
 }) 
 
-s
-    contenedorCards.innerHTML = crearCardsConPersonajes( filtrarPorNombre( filtrarPorCheck( personajes, checkChecked ) , nombreIngresado ) )
-})
-
-let filtrarPorCheck = (array, arrayChecks) => arrayChecks.length > 0 ? array.filter( personaje => arrayChecks.includes(personaje.house)) : array
+let filtrarPorCheck = (array, arrayChecks) => arrayChecks.length > 0 ? array.filter( filterMovies => arrayChecks.includes(filterMovies.genre)) : array
 
 
-let filtrarPorNombre = ( array , nombreIngresado ) => array.filter( personaje => personaje.name.toLowerCase().includes(nombreIngresado.trim().toLowerCase())) 
-
-
+let filtrarPorNombre = (array, nombreIngresado ) => array.filter( filterMovies => filterMovies.name.toLowerCase().includes(nombreIngresado.trim().toLowerCase())) 
 
 
 //A un String vacio lo reconoce como falso.
@@ -119,8 +115,6 @@ console.log(genres(movies)) */
 console.log(genres(filterMovies))*/
 /// LOS ... se llaman let constitutive o como se escriba y hace lo mismo. AVERIGUAR MAS.
 
-
-
 /* siiiiiiii !!!!!!!!!!! VER SI ESTA BIEN
 let createGenreSelect = nombre => `
 <select name="${nombre}" id="${nombre}">
@@ -131,9 +125,6 @@ let createGenreSelect = nombre => `
 let genreSelect = array => array.map(createGenreSelect).reduce( ( a , b ) => a + b )
 genreSelect_container.innerHTML = genreSelect(genres(movies))
  */
-
-
-
 
 /* function createGenreSelect_container(array) {
     return `
@@ -147,8 +138,6 @@ genreSelect_container.innerHTML = genreSelect(genres(movies))
 }
 renderGenreSelect_container(filtermovies, container2) */
 
-
-
 /* function createGenreSelect_container(genre) {
     return `
     <label for="${genre}">${genre}</label>
@@ -161,12 +150,6 @@ renderGenreSelect_container(filtermovies, container2) */
 /* function renderGenreSelect_container(array, container) {
     container.innerHTML = array.map(genre => createGenreSelect_container(genre)).join('');
 } */
-
-/* // Suponiendo que tienes un elemento con el id "container2" en tu HTML
-let container2 = document.getElementById("container2"); */
-
-/* renderGenreSelect_container(genres, container2); // Aquí "genres" debe ser un array de géneros */
-
 
 
 /* let createGenreSelect = nombre => `
@@ -182,121 +165,6 @@ let container2 = document.getElementById("container2"); */
             </select>
         `;
 console.log(createGenreSelect) */
+
 /* let genreSelect = array => array.map(createGenreSelect).reduce( ( a , b ) => a + b )
 genreSelect_container.innerHTML = genreSelect(genres(movies)) */
-
-/* // Obtener elementos HTML
-let genreSelect = document.getElementById("genreSelect");
-let moviesContainer = document.getElementById("movies_container");
-
-// Llenar el selector de género
- movies.forEach(genres => {
-    let option = document.createElement("option");
-    option.text = genres;
-    option.value = genres;
-    genreSelect(option);
-});
-
-// Función para filtrar películas por género
-function filterMoviesByGenre(genres) {
-    let filteredMovies = movies.filter(movie => {
-        if (genres === "") return true; // Si se selecciona "Todos"
-        return movie.genres.includes(genre);
-    });
-
-// Mostrar las películas filtradas
-    moviesContainer.innerHTML = "";
-    filteredMovies.forEach(movie => {
-        let movieElement = document.createElement("div");
-        movieElement.textContent = movie.title;
-        moviesContainer.appendChild(movieElement);
-    });
-}
-
-// Evento cuando se cambia la selección del género
-genreSelect.addEventListener("change", function() {
-    filterMoviesByGenre(this.value);
-});
-
-// Mostrar todas las películas inicialmente
-filterMoviesByGenre("");
-
- */
-
-
-
-/* /* CHAT GPT
-
-Entiendo, entonces necesitas un selector de género donde puedas elegir un género y filtrar las películas según ese género. Aquí está la corrección:
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Genre Selector</title>
-</head>
-<body>
-    <div>
-        <label for="genreSelect">Selecciona un género:</label>
-        <select name="genreSelect" id="genreSelect">
-            <option value="">Todos</option>
-        </select>
-    </div>
-
-    <div id="movies_container">
-        <!-- Aquí se insertarán las películas filtradas -->
-    </div>
-
-    <script>
-        let movies = [
-            { title: 'Pelicula 1', genres: ['Drama', 'Romance'] },
-            { title: 'Pelicula 2', genres: ['Comedia'] },
-            { title: 'Pelicula 3', genres: ['Acción', 'Aventura'] },
-            { title: 'Pelicula 4', genres: ['Drama'] },
-            // Agrega más películas si es necesario
-        ];
-
-        // Obtener lista de géneros únicos
-        let genres = Array.from(new Set(movies.flatMap(movie => movie.genres)));
-
-        // Obtener elementos HTML
-        let genreSelect = document.getElementById("genreSelect");
-        let moviesContainer = document.getElementById("movies_container");
-
-        // Llenar el selector de género
-        genres.forEach(genre => {
-            let option = document.createElement("option");
-            option.text = genre;
-            option.value = genre;
-            genreSelect.add(option);
-        });
-
-        // Función para filtrar películas por género
-        function filterMoviesByGenre(genre) {
-            let filteredMovies = movies.filter(movie => {
-                if (genre === "") return true; // Si se selecciona "Todos"
-                return movie.genres.includes(genre);
-            });
-
-            // Mostrar las películas filtradas
-            moviesContainer.innerHTML = "";
-            filteredMovies.forEach(movie => {
-                let movieElement = document.createElement("div");
-                movieElement.textContent = movie.title;
-                moviesContainer.appendChild(movieElement);
-            });
-        }
-
-        // Evento cuando se cambia la selección del género
-        genreSelect.addEventListener("change", function() {
-            filterMoviesByGenre(this.value);
-        });
-
-        // Mostrar todas las películas inicialmente
-        filterMoviesByGenre("");
-    </script>
-</body>
-</html>*/
-
-// Obtener lista de géneros único. */
