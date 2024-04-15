@@ -21,33 +21,35 @@
         <nav>
             <a href="./index.html" class="p-3 font-medium">HOME</a>
             <a href="./movies.html" class="p-3 font-medium">MOVIES</a>
-            <a href="#" class="active border border-solid border-white p-3 font-extrabold">FAVS</a>
+            <a href="./favs.html" class="p-3 font-medium">FAVS</a>
         </nav>
     </header>
 
     <main class="bg-purple-900 text-purple-900 font-sans">
-        <h1
-            class="min-w-sm m-1 p-1 mx-10 mt-4 text-center text-3xl text-white bg-black rounded-lg sm:text-4xl md:text-5xl lg:text-6xl">
-            FAVORITES</h1>
+        <!-- achicar h1 -->
+        <h1 class="min-w-sm m-1 p-1 mx-10 mt-4 text-center text-3xl text-white bg-black rounded-lg sm:text-4xl md:text-5xl lg:text-6xl">
+            DETAILS</h1>
         <!-- m-4 p-4 mx-20 text-center text-7xl text-white bg-black rounded-lg -->
         <hr class="my-4 border border-solid border-white">
-
-        <div id="favoritesContainer"
-            class="min-w-sm m-2 bg-purple-900 flex flex-col items-center md:flex-row md:flex-wrap md:justify-center">
+        <div id="detail_container"
+            class="min-w-sm m-2 bg-purple-900 flex flex-col items-center md:min-w-full md:flex-row md:flex-wrap md:justify-center md:m-0">
+            <!-- bg-purple-900 flex flex-wrap justify-center -->
         </div>
-
+        <section class="min-w-sm m-2 bg-purple-900 flex flex-col items-center md:flex-row md:justify-center">
+            <div id="table1_container"
+                class="min-w-sm mx-6 p-2 bg-purple-500 text-black flex flex-col items-center text-center sm:mx-20 md:m-4 md:flex-row md:flex-wrap md:justify-center">
+            </div>
+            <div id="table2_container"
+                class="min-w-sm mx-6 p-2 bg-purple-500 text-black flex flex-col items-center text-center sm:mx-20 md:m-4 md:flex-row md:flex-wrap md:justify-center">
+            </div>
+        </section>
     </main>
 
     <footer
         class="min-w-sm flex flex-row justify-center items-center bg-black text-center text-white font-medium border-2 border-solid border-white sm:p-8 sm:h-8 md:justify-evenly">
         <p>MindHub - Sofía Belén Figueredo Heinemann - Cohorte N° 54 </p>
     </footer>
-    <script type="module" src="./favs.js"></script>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            renderFavoriteCards();
-        });
-    </script> -->
+    <script type="module" src="./detail.js"></script>
 </body>
 
 </html>

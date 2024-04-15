@@ -6,56 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moviestack</title>
     <link rel="shortcut icon" href="./assets/images/Moviestack_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/style/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-sans bg-purple-900">
-    <header class="min-w-full flex flex-wrap md:flex-nowrap h-auto md:h-20 bg-purple-900 text-white justify-between items-center p-4 border border-2 border-solid border-white">
-        <div class="flex flex-wrap items-center">
-            <img src="./assets/images/Moviestack_isotipo.png" alt="moviestack_isotipo" class="w-24 mb-2 md:mb-0 md:mr-4">
-            <img src="./assets/images/Moviestack_logotipo1.png" alt="moviestack_logotipo1" class="w-full md:w-60">
+<body class="bg-purple-900 font-sans text-xl">
+    <header
+        class="min-w-sm flex justify-center items-center bg-black text-white border border-2 border-solid border-white sm:p-8 sm:h-8 md:justify-between">
+        <div class="flex">
+            <img src="./assets/images/Moviestack_isotipo.png" alt="moviestack_isotipo" class="min-w-sm w-14 md:w-24">
+            <img src="./assets/images/Moviestack_logotipo1.png" alt="moviestack_logotipo1"
+                class="min-w-sm w-20 md:w-36">
         </div>
-        <nav class="mt-4 md:mt-0">
-            <a href="#" class="active border border-solid border-white p-3">HOME</a>
-            <a href="./movies.html" class="p-3">MOVIES</a>
-            <a href="./favs.html" class="p-3">FAVS</a>
+        <nav>
+            <a href="#" class="active border border-solid border-white p-3 font-extrabold">HOME</a>
+            <a href="./movies.html" class="p-3 font-medium">MOVIES</a>
+            <a href="./favs.html" class="p-3 font-medium">FAVS</a>
         </nav>
     </header>
     <main class="bg-purple-900 text-white">
-        <section class="p-5 bg-purple-900 md:px-52 flex flex-col items-center justify-center">
-            <div class="w-full bg-purple-900 md:w-auto flex justify-center">
-                <iframe src='https://player.sensacine.com/19405489.html' style='width: 100%;max-width: 320px;height:170px' class="flex justify-center items-center bg-purple-900"> </iframe>
+        <section class="min-w-sm p-5">
+            <!-- p-5 px-52 flex flex-col items-center justify-center -->
+            <div class="min-w-full flex justify-center">
+                <iframe src='https://player.sensacine.com/19405489.html'
+                    class="flex justify-center items-center max-sm:w-[320px] max-sm:h-[180px] max-md:w-[480px] max-md:h-[270px] max-lg:w-[640px] max-lg:h-[360px] max-xl:w-[640px] max-xl:h-[360px] max-2xl:w-[640px] max-2xl:h-[360px]">
+                </iframe>
             </div>
-            <p class="py-8 px-4 bg-purple-900 md:px-0 font-sans tracking-widest text-justify">
-                <b>Welcome to Moviestack - Your Ultimate Destination for Movie Lovers!</b><br><br>
-                At Moviestack, we're passionate about all things film. Whether you're a cinephile seeking the latest blockbusters, an indie film aficionado on the hunt for hidden gems, or a casual moviegoer looking for something new to watch, you've come to the right place.<br><br>
-                Discover a vast collection of movies spanning every genre imaginable. From heart-pounding action to tear-jerking dramas, side-splitting comedies to spine-tingling thrillers, our extensive library has something for everyone.
+            <!-- style='width:320px;height:180px;' -->
+            <p class="py-8 font-sans tracking-widest text-justify md:text-center">
+                <b>Welcome to Moviestack - Your Ultimate Destination for Movie Lovers!</b><br>
+                At Moviestack, we're passionate about all things film. <!-- Whether you're a cinephile seeking the latest
+                blockbusters, an indie film aficionado on the hunt for hidden gems, or a casual moviegoer looking for
+                something new to watch, you've come to the right place.<br> -->
+                Discover a vast collection of movies spanning every genre imaginable. From heart-pounding action to
+                tear-jerking dramas, side-splitting comedies to spine-tingling thrillers, our extensive library has
+                something for everyone...
             </p>
         </section>
-        <section class="p-5">
-            <p class="pb-4 px-4 md:px-48 font-sans tracking-widest text-justify">
-                By clicking on the first image below, you will have access to the best movies.<br><br>On the
-                other hand, by clicking on the second image below, you will see your own selection of favorite
-                movies. Up to you!<br><br>So, grab your popcorn, dim the lights, and let the movie magic
-                begin.<br><br><b>Welcome to Moviestack - where every visit is a cinematic adventure!</b>
+        <section class="min-w-sm p-5">
+            <!--  p-5 -->
+            <p class="min-w-sm font-sans tracking-widest text-justify md:text-center">
+                <!-- pb-4 px-48 font-sans tracking-widest text-justify" -->
+                By clicking on the first image below, you will have access to the best movies.<br>
+                On the other hand, by clicking on the second image below, you will see your own selection of favorite
+                movies.<br>
+                <b>UP TO YOU !!!</b><br>
+                So, grab your popcorn, dim the lights, and let the movie magic
+                begin.<br><b>Welcome to Moviestack - where every visit is a cinematic adventure!</b>
             </p>
-            <article class="flex flex-col md:flex-row justify-center md:justify-evenly items-center pt-4 pb-20">
-                <div class="flex">
+            <article class="min-w-sm flex flex-col items-center p-4 gap-4 md:flex-row md:justify-evenly md:py-20">
+                <!--  flex justify-evenly items-center pt-4 pb-20 -->
+                <div class="flex flex-col">
                     <a href="./movies.html">
-                        <img src="./assets/images/image_callmovies.jpg" alt="image_callmovies" class="object-contain">
+                        <img src="./assets/images/image_callmovies.jpg" alt="image_callmovies"
+                            class="object-contain lg:w-96 lg:h-48">
                     </a>
+                    <article class="bg-cover bg-no-repeat flex items-center justify-center bg-center rounded-lg">
+                        <a href="./movies.html"
+                            class="w-fit text-[40px] text-purple-100 fluorecentText sigmar-one-regular">MOVIES</a>
+                    </article>
+
                 </div>
-                <div class="mt-4 md:mt-0">
+                <div class="flex flex-col">
                     <a href="./favs.html">
-                        <img src="./assets/images/image_callfavourite.jpg" alt="image_callfavourite" class="h-40 md:h-auto w-full md:w-72 decoration-clone">
+                        <img src="./assets/images/image_callfavourite.jpg" alt="image_callfavourite"
+                            class="min-w-sm w-80 md:h-40 lg:w-96 lg:h-48">
                     </a>
+                    <article class="bg-cover bg-no-repeat flex items-center justify-center bg-center rounded-lg">
+                        <a href="./favs.html"
+                            class="w-fit text-[40px] text-purple-100 fluorecentText sigmar-one-regular">FAVS</a>
+                    </article>
                 </div>
             </article>
         </section>
     </main>
-    <footer class="h-auto md:h-20 flex justify-center items-center bg-purple-900 text-white tracking-widest border border-2 border-solid border-white">
-        <p>MindHub - Sofía Belén Figueredo Heinemann - Cohorte N° 54</p>
+    <footer
+        class="min-w-sm flex flex-row justify-center items-center bg-black text-center text-white font-medium border-2 border-solid border-white sm:p-8 sm:h-8 md:justify-evenly">
+        <!--      "min-w-sm flex flex-col items-center p-2 gap-4 bg-black text-white tracking-widest border border-2 border-solid border-white lg:h-20 lg:flex-row lg:justify-center lg:font-bold"> -->
+        <!-- h-20 flex justify-center items-center bg-purple-900 text-white tracking-widest border border-2 border-solid border-white -->
+        <!-- <p>MindHub&nbsp;&nbsp;-</p>
+        <p>Sofía Belén Figueredo Heinemann&nbsp;&nbsp;-</p>
+        <p>Cohorte N° 54</p> -->
+        <p>MindHub - Sofía Belén Figueredo Heinemann - Cohorte N° 54 </p>
     </footer>
+    <!-- <script src="./moviestackdata.js"></script> -->
+    <script type="module" src="./movies.js"></script>
 </body>
 
 </html>
